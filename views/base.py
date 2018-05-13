@@ -95,7 +95,7 @@ class BasePage(widgets.TempyPage):
                     "Created by Federico Cerchiari with ",
                     tags.Img(src=self._request.static_url('app:img/brain.png'), height="17px"),
                     ", Python, Pyramid and ",
-                    tags.A(href='https://github.com/Hrabal/TemPy')('TemPy'),
+                    tags.A(href='https://github.com/Hrabal/TemPy', target='blank')('TemPy'),
                     ". Deployed on AWS Lambda using Zappa. ",
                     tags.A(href='https://github.com/Hrabal/Dobry', target='blank')(
                         'Code on GitHub ',
