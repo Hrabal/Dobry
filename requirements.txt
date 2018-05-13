@@ -1,3 +1,5 @@
 pyramid
 zappa
 tem-py
+sqlalchemy
+psycopg2-binary
