@@ -36,7 +36,7 @@ for f in model_files:
             models.append(x)
 __all__ = models
 
-print('Imported models: %s' % ', '.join(str(m) for m in models) if models else 'No models avaiable in the models directory.')
+print('Imported models: %s' % ', '.join(str(m) for m in models) if models else 'No models found.')
 
 
 def initialize_sql(engine):
