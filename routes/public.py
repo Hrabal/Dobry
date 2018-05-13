@@ -2,18 +2,13 @@
 from pyramid.response import Response
 from .base import Route
 
+import views.public as v
+
 
 class Home(Route):
     url = '/'
 
     @Route.handler
     def handler(request):
-        return Response('Hello World, <a href="/test" >Test</a>')
-
-
-class Test(Route):
-    url = '/test'
-
-    @Route.handler
-    def handler(request):
-        return Response('Hello Test!')
+        html = v.HomePage(request).render()
+        return Response(html)
