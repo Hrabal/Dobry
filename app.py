@@ -35,8 +35,9 @@ def db_uri_from_env(settings):
     settings.set('db:main', 'sqlalchemy.url', f'{engine_type}://{user}:{pwd}@{naked_uri}/{db_name}')
 
 
-def make_wsgi_app(env, **vars):
+def make_wsgi_app(**kwargs):
     # Settings inheritance: env ini overrides default ini
+    env = kwargs.pop('env')
     env_settings_file = f'{env}.ini'
     settings = ConfigParser()
     settings.read('default.ini')
@@ -74,7 +75,7 @@ def zappa_wsgi_app(app, environ):
 
 if __name__ == '__main__':
     env = 'localhost'
-    app = make_wsgi_app(env)
+    app = make_wsgi_app(env=env)
     host = app.registry.settings.get('server:main').get('host')
     port = app.registry.settings.get('server:main').getint('port')
     server = make_server(host, port, app)
